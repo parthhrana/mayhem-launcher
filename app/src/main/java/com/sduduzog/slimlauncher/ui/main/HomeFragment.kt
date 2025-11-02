@@ -80,6 +80,7 @@ class HomeFragment : BaseFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         uninstallAppLauncher = registerForActivityResult(StartActivityForResult()) { refreshApps() }
+        refreshApps()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
@@ -153,7 +154,6 @@ class HomeFragment : BaseFragment() {
         super.onResume()
         updateClock()
 
-        refreshApps()
         if (!::appDrawerAdapter.isInitialized) {
             appDrawerAdapter.setAppFilter()
         }
