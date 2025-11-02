@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.sduduzog.slimlauncher.ui.main.HomeFragment"
+        android:name="com.parthhrana.mayhemlauncher.ui.main.HomeFragment"
         android:label="home_fragment"
         tools:layout="@layout/home_fragment_default">
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/optionsFragment"
-        android:name="com.sduduzog.slimlauncher.ui.options.OptionsFragment"
+        android:name="com.parthhrana.mayhemlauncher.ui.options.OptionsFragment"
         android:label="options_fragment"
         tools:layout="@layout/options_fragment">
         <action
@@ -28,12 +28,12 @@
     </fragment>
     <fragment
         android:id="@+id/addAppFragment"
-        android:name="com.sduduzog.slimlauncher.ui.options.AddAppFragment"
+        android:name="com.parthhrana.mayhemlauncher.ui.options.AddAppFragment"
         android:label="add_app_fragment"
         tools:layout="@layout/add_app_fragment" />
     <fragment
         android:id="@+id/customiseQuickButtonsFragment"
-        android:name="com.jkuester.unlauncher.fragment.CustomizeHomeFragment"
+        android:name="com.parthhrana.mayhemlauncher.fragment.CustomizeHomeFragment"
         android:label="customise_quick_buttons_fragment"
         tools:layout="@layout/customize_home">
         <action
@@ -42,11 +42,11 @@
     </fragment>
     <fragment
         android:id="@+id/customizeHomeAppsAddAppFragment"
-        android:name="com.jkuester.unlauncher.fragment.CustomizeHomeAppsAddAppFragment"
+        android:name="com.parthhrana.mayhemlauncher.fragment.CustomizeHomeAppsAddAppFragment"
         tools:layout="@layout/customize_home_apps_add_app" />
     <fragment
         android:id="@+id/customiseAppDrawerFragment"
-        android:name="com.jkuester.unlauncher.fragment.CustomizeAppDrawerFragment"
+        android:name="com.parthhrana.mayhemlauncher.fragment.CustomizeAppDrawerFragment"
         android:label="customise_app_drawer_fragment"
         tools:layout="@layout/customize_app_drawer">
         <action
@@ -58,12 +58,12 @@
     </fragment>
     <fragment
         android:id="@+id/customiseAppDrawerAppListFragment"
-        android:name="com.jkuester.unlauncher.fragment.CustomizeVisibleAppsFragment"
+        android:name="com.parthhrana.mayhemlauncher.fragment.CustomizeVisibleAppsFragment"
         android:label="customise_app_drawer_app_list_fragment"
         tools:layout="@layout/customize_app_drawer_visible_apps" />
     <fragment
         android:id="@+id/customizeSearchFieldFragment"
-        android:name="com.jkuester.unlauncher.fragment.CustomizeSearchFieldFragment"
+        android:name="com.parthhrana.mayhemlauncher.fragment.CustomizeSearchFieldFragment"
         android:label="customize_app_drawer_search_field_fragment"
         tools:layout="@layout/customize_app_drawer_search_field_options" />
 

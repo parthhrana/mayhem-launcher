@@ -1,20 +1,20 @@
 <p align="center">
-  <img src="docs/assets/unlauncher-logo.png">
+  <img src="docs/assets/mayhem-launcher-logo.png" alt="Mayhem Launcher Logo">
 </p>
 
 <h1 align="center">
-  Unlauncher
+  Mayhem Launcher
 </h1>
 
-![Build Status](https://github.com/jkuester/unlauncher/workflows/Android%20Master%20Branch%20CI/badge.svg)
+![Build Status](https://github.com/parthhrana/mayhem-launcher/workflows/Android%20Master%20Branch%20CI/badge.svg)
 
 > _Freedom from your phone_
 
 [<img src="https://f-droid.org/badge/get-it-on.png"
      alt="Get it on F-Droid"
-     height="80">](https://f-droid.org/packages/com.jkuester.unlauncher/)
+     height="80">](https://f-droid.org/packages/com.parthhrana.mayhemlauncher/)
 
-The goal of Unlauncher is to provide a clean and simple Android launcher experience. We believe you should have easy access to all of your apps without the distraction of bells, whistles, and notifications clamouring for your attention. You want to be able to use your phone, not have your phone use you!
+The goal of Mayhem Launcher is to provide a clean and simple Android launcher experience. We believe you should have easy access to all of your apps without the distraction of bells, whistles, and notifications clamouring for your attention. You want to be able to use your phone, not have your phone use you!
 
 <p float="left">
   <img height="724" width="400" src="docs/assets/home-screen-1.png">
@@ -52,13 +52,13 @@ Linux Lounge - [A Quick Look At Unlauncher - Can This Launcher Help With Smartph
 
 ## Project History
 
-This project is a fork of the great [Slim Launcher](https://github.com/sduduzog/slim-launcher) by [sduduzog](https://github.com/sduduzog). The contributors to that project deserve all the credit for the beautiful layout of this app!
+This project, Mayhem Launcher, is a fork of [Unlauncher](https://github.com/jkuester/unlauncher) by [jkuester](https://github.com/jkuester), which in turn is a fork of the great [Slim Launcher](https://github.com/sduduzog/slim-launcher) by [sduduzog](https://github.com/sduduzog). The contributors to those projects deserve all the credit for the beautiful layout of this app!
 
-The main differentiator between Unlauncher and Slim Launcher lies in the number of apps the launcher gives you access too.  Slim Launcher takes the Spartan approach of only allowing access to seven apps. Unlauncher, on the other hand, allows you to pin up to six apps on the home screen and then gives you access to all the rest of your apps by swiping up into a searchable app drawer.
+The main differentiator between Mayhem Launcher and Slim Launcher lies in the number of apps the launcher gives you access too. Slim Launcher takes the Spartan approach of only allowing access to seven apps. Mayhem Launcher, on the other hand, allows you to pin up to six apps on the home screen and then gives you access to all the rest of your apps by swiping up into a searchable app drawer.
 
 ## Communication
 
-If you have any issues or questions, please log a [Github issue](https://github.com/jkuester/unlauncher/issues) for this repository.
+If you have any issues or questions, please log a [Github issue](https://github.com/parthhrana/mayhem-launcher/issues) for this repository.
 
 ## Contributing
 

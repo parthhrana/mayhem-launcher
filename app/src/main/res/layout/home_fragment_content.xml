@@ -45,7 +45,7 @@
         app:srcCompat="@drawable/ic_cog"
         tools:ignore="ContentDescription" />
 
-    <com.sduduzog.slimlauncher.ui.main.BinaryClockView
+    <com.parthhrana.mayhemlauncher.ui.main.BinaryClockView
         android:id="@+id/home_fragment_bin_time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
         custom:border="2"
         custom:distance="10" />
 
-    <com.sduduzog.slimlauncher.ui.main.AnalogClockView
+    <com.parthhrana.mayhemlauncher.ui.main.AnalogClockView
         android:id="@+id/home_fragment_analog_time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -13,7 +13,7 @@ plugins {
 android {
     compileSdk = 35
     defaultConfig {
-        applicationId = "com.jkuester.unlauncher"
+        applicationId = "com.parthhrana.mayhemlauncher"
         minSdk = 21
         //noinspection OldTargetApi
         targetSdk = 35
@@ -73,7 +73,7 @@ android {
         disable += "GradleDependency" // Do not fail linting due to new dependencies
         checkDependencies = false
     }
-    namespace = "com.sduduzog.slimlauncher"
+    namespace = "com.parthhrana.mayhemlauncher"
     applicationVariants.all {
         outputs.all {
             (this as com.android.build.gradle.internal.api.BaseVariantOutputImpl).outputFileName =
@@ -144,8 +144,7 @@ kover {
         filters {
             excludes {
                 packages(
-                    "com.sduduzog.slimlauncher",
-                    "com.jkuester.unlauncher.datastore.proto",
+                    "com.parthhrana.mayhemlauncher",
                     "dagger.hilt.internal.aggregatedroot.codegen",
                     "hilt_aggregated_deps",
                 )

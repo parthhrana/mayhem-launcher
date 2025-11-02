@@ -1,0 +1,104 @@
+package com.parthhrana.mayhemlauncher.bindings
+
+import android.content.res.Resources
+import android.view.View.OnClickListener
+import androidx.activity.ComponentActivity
+import androidx.fragment.app.FragmentManager
+import com.parthhrana.mayhemlauncher.R
+import com.parthhrana.mayhemlauncher.databinding.CustomizeAppDrawerSearchFieldOptionsBinding
+import com.parthhrana.mayhemlauncher.datasource.DataRepository
+import com.parthhrana.mayhemlauncher.datasource.setShowSearchBar
+import com.parthhrana.mayhemlauncher.datasource.toggleActivateKeyboardInDrawer
+import com.parthhrana.mayhemlauncher.datasource.toggleSearchAllAppsInDrawer
+import com.parthhrana.mayhemlauncher.datastore.proto.CorePreferences
+import com.parthhrana.mayhemlauncher.dialog.SearchBarPositionDialog
+
+fun setupBackButton(activity: ComponentActivity) = { options: CustomizeAppDrawerSearchFieldOptionsBinding ->
+    options.headerBack.setOnClickListener { activity.onBackPressedDispatcher.onBackPressed() }
+}
+
+fun setupShowSearchBarSwitch(corePrefsRepo: DataRepository<CorePreferences>) =
+    { options: CustomizeAppDrawerSearchFieldOptionsBinding ->
+        options.showSearchFieldSwitch.setOnCheckedChangeListener { _, checked ->
+            corePrefsRepo.updateAsync(setShowSearchBar(checked))
+        }
+        corePrefsRepo.observe {
+            options.showSearchFieldSwitch.isChecked = it.showSearchBar
+        }
+    }
+
+private fun searchFieldPositionListener(fragmentManager: FragmentManager) = OnClickListener {
+    SearchBarPositionDialog().showNow(fragmentManager, null)
+}
+
+private fun updateSearchBarPositionLayout(
+    options: CustomizeAppDrawerSearchFieldOptionsBinding,
+    optionNames: Array<CharSequence>
+): (CorePreferences) -> Unit = {
+    options.apply {
+        searchFieldPositionTitle.isEnabled = it.showSearchBar
+        searchFieldPositionSubtitle.isEnabled = it.showSearchBar
+        searchFieldPositionSubtitle.text = optionNames[it.searchBarPosition.number]
+    }
+}
+
+fun setupSearchBarPositionOption(
+    corePrefsRepo: DataRepository<CorePreferences>,
+    fragmentManager: FragmentManager,
+    resources: Resources
+) = { options: CustomizeAppDrawerSearchFieldOptionsBinding ->
+    searchFieldPositionListener(fragmentManager)
+        .also(options.searchFieldPositionTitle::setOnClickListener)
+        .also(options.searchFieldPositionSubtitle::setOnClickListener)
+    corePrefsRepo.observe(
+        updateSearchBarPositionLayout(options, resources.getTextArray(R.array.search_bar_position_array))
+    )
+}
+
+private fun openKeyboardSwitchListener(corePrefsRepo: DataRepository<CorePreferences>) = OnClickListener {
+    corePrefsRepo.updateAsync(toggleActivateKeyboardInDrawer())
+}
+
+private fun updateKeyboardSwitchLayout(
+    options: CustomizeAppDrawerSearchFieldOptionsBinding
+): (CorePreferences) -> Unit = {
+    options.apply {
+        openKeyboardSwitchTitle.isEnabled = it.showSearchBar
+        openKeyboardSwitchSubtitle.isEnabled = it.showSearchBar
+        openKeyboardSwitchToggle.isEnabled = it.showSearchBar
+        openKeyboardSwitchToggle.isChecked = it.activateKeyboardInDrawer
+    }
+}
+
+fun setupKeyboardSwitch(corePrefsRepo: DataRepository<CorePreferences>) =
+    { options: CustomizeAppDrawerSearchFieldOptionsBinding ->
+        openKeyboardSwitchListener(corePrefsRepo)
+            .also(options.openKeyboardSwitchTitle::setOnClickListener)
+            .also(options.openKeyboardSwitchSubtitle::setOnClickListener)
+            .also(options.openKeyboardSwitchToggle::setOnClickListener)
+        corePrefsRepo.observe(updateKeyboardSwitchLayout(options))
+    }
+
+private fun searchAllAppsListener(corePrefsRepo: DataRepository<CorePreferences>) = OnClickListener {
+    corePrefsRepo.updateAsync(toggleSearchAllAppsInDrawer())
+}
+
+private fun updateSearchAllAppsSwitchLayout(
+    options: CustomizeAppDrawerSearchFieldOptionsBinding
+): (CorePreferences) -> Unit = {
+    options.apply {
+        searchAllSwitchTitle.isEnabled = it.showSearchBar
+        searchAllSwitchSubtitle.isEnabled = it.showSearchBar
+        searchAllSwitchToggle.isEnabled = it.showSearchBar
+        searchAllSwitchToggle.isChecked = it.searchAllAppsInDrawer
+    }
+}
+
+fun setupSearchAllAppsSwitch(corePrefsRepo: DataRepository<CorePreferences>) =
+    { options: CustomizeAppDrawerSearchFieldOptionsBinding ->
+        searchAllAppsListener(corePrefsRepo)
+            .also(options.searchAllSwitchTitle::setOnClickListener)
+            .also(options.searchAllSwitchSubtitle::setOnClickListener)
+            .also(options.searchAllSwitchToggle::setOnClickListener)
+        corePrefsRepo.observe(updateSearchAllAppsSwitchLayout(options))
+    }
