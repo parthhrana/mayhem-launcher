@@ -114,7 +114,10 @@ fun addHomeApp(appToUpdate: UnlauncherApp): (UnlauncherApps) -> UnlauncherApps =
     val newHomeAppIndex = originalApps.appsList
         .filter { it.hasHomeAppIndex() }
         .size
-    updateApp(appToUpdate, setHomeApp(newHomeAppIndex))(originalApps)
+    val app = originalApps.appsList.first {
+        it.packageName == appToUpdate.packageName && it.className == appToUpdate.className
+    }
+    updateApp(app, setHomeApp(newHomeAppIndex))(originalApps)
 }
 
 fun removeHomeApp(homeAppIndex: Int): (UnlauncherApps) -> UnlauncherApps = { originalApps ->

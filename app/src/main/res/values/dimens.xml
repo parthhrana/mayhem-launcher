@@ -24,6 +24,7 @@
 
     <dimen name="margin_sides">@dimen/_16sdp</dimen>
     <dimen name="margin_sides_small">@dimen/_8sdp</dimen>
+    <dimen name="margin_sides_large">@dimen/_24sdp</dimen>
 
     <dimen name="padding">@dimen/_8sdp</dimen>
 

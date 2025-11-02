@@ -5,20 +5,26 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.activity.ComponentActivity
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import com.parthhrana.mayhemlauncher.R
 import com.parthhrana.mayhemlauncher.datasource.DataRepository
 import com.parthhrana.mayhemlauncher.datasource.addHomeApp
+import com.parthhrana.mayhemlauncher.datastore.proto.UnlauncherApp
 import com.parthhrana.mayhemlauncher.datastore.proto.UnlauncherApps
 
 class CustomizeHomeAppsAddAppAdapter(
     private val appsRepo: DataRepository<UnlauncherApps>,
     private val activity: ComponentActivity
 ) : RecyclerView.Adapter<CustomizeHomeAppsAddAppAdapter.ViewHolder>() {
-    private val apps = appsRepo
-        .get()
-        .appsList
-        .filter { !it.hasHomeAppIndex() }
+    private var apps: List<UnlauncherApp> = emptyList()
+
+    init {
+        appsRepo.observe(Observer { unlauncherApps ->
+            apps = unlauncherApps.appsList.filter { app: UnlauncherApp -> !app.hasHomeAppIndex() }
+            notifyDataSetChanged()
+        })
+    }
 
     override fun getItemCount(): Int = apps.size
 
