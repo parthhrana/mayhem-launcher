@@ -6,7 +6,6 @@ import android.content.res.Configuration
 import android.content.res.Resources
 import android.graphics.Canvas
 import android.os.Build
-import android.util.DisplayMetrics
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.createBitmap
 import androidx.datastore.core.DataStore
@@ -21,8 +20,7 @@ private fun getScreenResolution(activity: Activity) = if (androidSdkAtLeast(Buil
     val bounds = activity.windowManager.currentWindowMetrics.bounds
     Pair(bounds.width(), bounds.height())
 } else {
-    val metrics = DisplayMetrics()
-        .also(activity.windowManager.defaultDisplay::getMetrics)
+    val metrics = activity.resources.displayMetrics
     Pair(metrics.widthPixels, metrics.heightPixels)
 }
 

@@ -60,6 +60,7 @@ android {
     }
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_17.toString()
+        freeCompilerArgs += "-Xsuppress-version-warnings"
     }
     testOptions {
         unitTests.all {

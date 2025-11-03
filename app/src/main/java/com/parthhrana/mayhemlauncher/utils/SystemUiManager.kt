@@ -1,6 +1,5 @@
 package com.parthhrana.mayhemlauncher.utils
 
-import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Context
 import android.content.res.Configuration
@@ -74,7 +73,7 @@ open class SystemUiManager internal constructor(
         }
     }
 
-    @TargetApi(Build.VERSION_CODES.R)
+    @RequiresApi(Build.VERSION_CODES.R)
     open fun setSystemUiVisibility() {
         val insetsController = window.insetsController
 
@@ -105,13 +104,7 @@ open class SystemUiManager internal constructor(
         }
     }
 
-    @TargetApi(Build.VERSION_CODES.O)
-    open fun setSystemUiColors() {
-        // These colors can be hard-coded in the theme xml once the minimum Android API version is 26
-        val primaryColor = getPrimaryColor()
-        window.statusBarColor = primaryColor
-        window.navigationBarColor = primaryColor
-    }
+    open fun setSystemUiColors() {}
 
     internal fun getPrimaryColor(): Int {
         val primaryColor = TypedValue()
@@ -132,6 +125,7 @@ open class SystemUiManager internal constructor(
             (theme == 0 && uiMode == Configuration.UI_MODE_NIGHT_NO)
     }
 
+    @Suppress("DEPRECATION")
     private open class OSystemUiManager(context: Context, prefsRepo: DataRepository<CorePreferences>) :
         SystemUiManager(context, prefsRepo) {
         @RequiresApi(Build.VERSION_CODES.O)
@@ -151,6 +145,7 @@ open class SystemUiManager internal constructor(
             if (isSystemUiHidden()) View.SYSTEM_UI_FLAG_FULLSCREEN else 0
     }
 
+    @Suppress("DEPRECATION")
     private open class MSystemUiManager(context: Context, prefsRepo: DataRepository<CorePreferences>) :
         OSystemUiManager(context, prefsRepo) {
         @RequiresApi(Build.VERSION_CODES.M)

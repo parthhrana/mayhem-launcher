@@ -12,8 +12,10 @@ open class HomeWatcher(internal val context: Context) {
 
     private var listener: OnHomePressedListener? = null
     internal var receiver: InnerReceiver? = null
+    @Suppress("DEPRECATION")
     internal val filter = IntentFilter(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)
 
+    // Deprecated but necessary for older Android versions to detect home button presses.
     companion object {
         fun createInstance(context: Context): HomeWatcher {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {

@@ -9,6 +9,7 @@ import android.view.GestureDetector
 import android.view.GestureDetector.SimpleOnGestureListener
 import android.view.MotionEvent
 import android.view.View
+import androidx.activity.OnBackPressedCallback
 import androidx.annotation.StyleRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.motion.widget.MotionLayout
@@ -65,9 +66,11 @@ class MainActivity :
         return super.dispatchTouchEvent(ev)
     }
 
-    private fun dispatchBack() {
-        for (s in subscribers) if (s.onBack()) return
-        completeBackAction()
+    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            for (s in subscribers) if (s.onBack()) return
+            finish()
+        }
     }
 
     private fun dispatchHome() {
@@ -89,11 +92,12 @@ class MainActivity :
         navigator = navHostFragment.navController
         homeWatcher = HomeWatcher.createInstance(this)
         homeWatcher.setOnHomePressedListener(this)
+
+        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
     }
 
     override fun onResume() {
         super.onResume()
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         systemUiManager.setSystemUiVisibility()
     }
 
@@ -119,19 +123,9 @@ class MainActivity :
         }
     }
 
-    @Deprecated("Deprecated in Java")
-    override fun onBackPressed() {
-        super.onBackPressed()
-        dispatchBack()
-    }
-
     override fun onHomePressed() {
         dispatchHome()
         navigator.popBackStack(R.id.homeFragment, false)
-    }
-
-    private fun completeBackAction() {
-        super.onBackPressed()
     }
 
     private fun isVisible(view: View): Boolean {

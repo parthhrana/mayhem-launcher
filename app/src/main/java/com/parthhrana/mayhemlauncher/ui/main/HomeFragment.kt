@@ -52,6 +52,7 @@ import com.parthhrana.mayhemlauncher.datastore.proto.UnlauncherApp
 import com.parthhrana.mayhemlauncher.datastore.proto.UnlauncherApps
 import com.parthhrana.mayhemlauncher.dialog.RenameAppDisplayNameDialog
 import com.parthhrana.mayhemlauncher.fragment.WithFragmentLifecycle
+import com.parthhrana.mayhemlauncher.ui.widgets.WidgetsFragment
 import com.parthhrana.mayhemlauncher.utils.BaseFragment
 import com.parthhrana.mayhemlauncher.utils.isSystemApp
 import dagger.hilt.android.AndroidEntryPoint
@@ -92,6 +93,9 @@ class HomeFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        childFragmentManager.beginTransaction()
+            .replace(R.id.widgets_container, WidgetsFragment())
+            .commit()
         val adapter1 = HomeAdapter(this, corePreferencesRepo)
         val adapter2 = HomeAdapter(this, corePreferencesRepo)
         val homeFragmentContent = HomeFragmentContentBinding.bind(view)
