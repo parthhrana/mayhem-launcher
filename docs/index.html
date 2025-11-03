@@ -31,50 +31,100 @@
 
 <body>
 <header class="site-header">
-  <a>
-    <img src="./assets/mayhem-launcher-logo.png" class="site-header__logo" alt="Mayhem Launcher logo">
-  </a>
-  <h2 class="site-header__title">Mayhem Launcher</h2>
-  <nav class="header-nav">
-    <input type="checkbox" class="nav-trigger" name="nav-trigger" id="nav-trigger"/>
-    <label for="nav-trigger">
-      <div class="menu-icon">
-        <span class="menu-icon__elem"></span>
-        <span class="menu-icon__elem"></span>
-        <span class="menu-icon__elem"></span>
+  <div class="wrapper">
+    <a href="#" class="site-header__logo-link">
+      <img src="./assets/mayhem-launcher-logo.png" class="site-header__logo" alt="Mayhem Launcher logo">
+      <h2 class="site-header__title">Mayhem Launcher</h2>
+    </a>
+    <nav class="header-nav">
+      <input type="checkbox" class="nav-trigger" name="nav-trigger" id="nav-trigger"/>
+      <label for="nav-trigger">
+        <div class="menu-icon">
+          <span class="menu-icon__elem"></span>
+          <span class="menu-icon__elem"></span>
+          <span class="menu-icon__elem"></span>
+        </div>
+      </label>
+      <div class="trigger">
+        <a href="https://github.com/parthhrana/mayhem-launcher" class="header-nav__elem">GitHub</a>
+        <a href="#features" class="header-nav__elem">Features</a>
+        <a href="#screenshots" class="header-nav__elem">Screenshots</a>
       </div>
-    </label>
-    <div class="trigger">
-      <a href="https://github.com/parthhrana/mayhem-launcher" class="header-nav__elem">Github Repo</a>
-    </div>
-  </nav>
+    </nav>
+  </div>
 </header>
+
 <main role="main">
-  <section role="banner" class="banner">
+  <section class="hero-section">
     <div class="wrapper">
-      <h1>A clean Android launcher experience</h1>
-      <h2>Use your phone. Don't let it use you!</h2>
-      <img src="./assets/home-screen.png" class="screenshot" alt="Home screen screenshot">
-      <a href="https://f-droid.org/en/packages/com.parthhrana.mayhemlauncher">
-        <img class="badge f-droid"
-             src="./assets/badge_get-it-on-en-us.png"
-             alt="F-droid badge">
-      </a>
+      <div class="hero-content">
+        <h1>Mayhem Launcher</h1>
+        <h2>A clean Android launcher experience.</h2>
+        <p>Use your phone. Don't let it use you!</p>
+        <div class="download-buttons">
+          <a href="https://f-droid.org/en/packages/com.parthhrana.mayhemlauncher" class="button f-droid">
+            <img src="./assets/badge_get-it-on-en-us.png" alt="Get it on F-Droid">
+          </a>
+          <!-- Add Google Play button if available -->
+          <!-- <a href="#" class="button google-play">
+            <img src="./assets/google-play-badge.png" alt="Get it on Google Play">
+          </a> -->
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="./assets/home-screen.png" alt="Mayhem Launcher Home Screen" class="screenshot">
+      </div>
     </div>
   </section>
 
-  <section class="screenshots">
+  <section id="features" class="features-section">
+    <div class="wrapper">
+      <h2>Key Features</h2>
+      <div class="feature-grid">
+        <div class="feature-item">
+          <h3>Minimalist Design</h3>
+          <p>A clutter-free interface that focuses on what matters most.</p>
+        </div>
+        <div class="feature-item">
+          <h3>Fast & Lightweight</h3>
+          <p>Optimized for speed and efficiency, ensuring a smooth experience.</p>
+        </div>
+        <div class="feature-item">
+          <h3>Customizable</h3>
+          <p>Personalize your home screen with essential apps and widgets.</p>
+        </div>
+        <div class="feature-item">
+          <h3>Privacy-Focused</h3>
+          <p>No ads, no tracking. Your data stays yours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="screenshots" class="screenshots-section">
     <div class="wrapper">
       <h2>App Screenshots</h2>
-      <p float="left">
-        <img height="724" width="400" src="./assets/home-screen-1.png" alt="Home screen screenshot 1">
-        <img height="724" width="400" src="./assets/home-screen-2.png" alt="Home screen screenshot 2">
-      </p>
+      <div class="screenshot-grid">
+        <img src="./assets/home-screen-1.png" alt="App Screenshot 1">
+        <img src="./assets/home-screen-2.png" alt="App Screenshot 2">
+        <!-- Add more screenshots as needed -->
+      </div>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <div class="wrapper">
+      <h2>Our Philosophy</h2>
+      <p>Mayhem Launcher is built on the principle of simplicity and control. We believe your phone should be a tool that serves you, not a source of distraction. Our launcher provides a clean, efficient, and customizable environment, empowering you to focus on what truly matters.</p>
     </div>
   </section>
 </main>
+
 <footer>
-  <p>Forked with ❤ from <a href="https://github.com/jkuester/unlauncher">Unlauncher</a></p>
+  <div class="wrapper">
+    <p>&copy; 2023 Mayhem Launcher. All rights reserved.</p>
+    <p>Forked with ❤️ from <a href="https://github.com/jkuester/unlauncher">Unlauncher</a></p>
+  </div>
 </footer>
 </body>
 
