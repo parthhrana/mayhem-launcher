@@ -8,8 +8,7 @@
         motion:duration="250">
         <OnSwipe
             motion:dragDirection="dragUp"
-            motion:touchAnchorId="@+id/home_fragment_list"
-            motion:touchAnchorSide="bottom" />
+            motion:touchAnchorId="@+id/home_fragment" />
     </Transition>
 
     <ConstraintSet android:id="@+id/home_motion_01">

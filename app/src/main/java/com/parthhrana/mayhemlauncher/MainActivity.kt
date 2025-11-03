@@ -62,7 +62,6 @@ class MainActivity :
     }
 
     override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
-        gestureDetector.onTouchEvent(ev)
         return super.dispatchTouchEvent(ev)
     }
 
@@ -170,8 +169,11 @@ class MainActivity :
                     val homeScreen = homeView.constraintSetIds[0]
                     val isFlingFromHomeScreen = homeView.currentState == homeScreen
                     val isFlingDown = velocityY > 0 && velocityY > velocityX.absoluteValue
+                    val isFlingUp = velocityY < 0 && velocityY.absoluteValue > velocityX.absoluteValue
                     if (isFlingDown && isFlingFromHomeScreen) {
                         expandStatusBar()
+                    } else if (isFlingUp && isFlingFromHomeScreen) {
+                        homeView.transitionToState(R.id.home_motion_02)
                     }
                 }
                 return super.onFling(e1, e2, velocityX, velocityY)
