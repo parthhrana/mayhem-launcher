@@ -52,7 +52,7 @@ Linux Lounge - [A Quick Look At Unlauncher - Can This Launcher Help With Smartph
 
 ## Project History
 
-This project, Mayhem Launcher, is a fork of [Unlauncher](https://github.com/jkuester/unlauncher) by [jkuester](https://github.com/parthhrana), which in turn is a fork of the great [Slim Launcher](https://github.com/sduduzog/slim-launcher) by [sduduzog](https://github.com/sduduzog). The contributors to those projects deserve all the credit for the beautiful layout of this app!
+This project, Mayhem Launcher, is a fork of [Unlauncher](https://github.com/jkuester/unlauncher) by [jkuester](https://github.com/jkuester), which in turn is a fork of the great [Slim Launcher](https://github.com/sduduzog/slim-launcher) by [sduduzog](https://github.com/sduduzog). The contributors to those projects deserve all the credit for the beautiful layout of this app!
 
 The main differentiator between Mayhem Launcher and Slim Launcher lies in the number of apps the launcher gives you access too. Slim Launcher takes the Spartan approach of only allowing access to seven apps. Mayhem Launcher, on the other hand, allows you to pin up to six apps on the home screen and then gives you access to all the rest of your apps by swiping up into a searchable app drawer.
 
