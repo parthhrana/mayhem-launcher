@@ -8,7 +8,8 @@
         motion:duration="250">
         <OnSwipe
             motion:dragDirection="dragUp"
-            motion:touchAnchorId="@+id/home_fragment" />
+            motion:touchAnchorId="@+id/home_fragment_list"
+            motion:touchAnchorSide="bottom" />
     </Transition>
 
     <ConstraintSet android:id="@+id/home_motion_01">
@@ -116,7 +117,7 @@
             app:visibilityMode="ignore"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/app_drawer_fragment_list" />
+            app:layout_constraintTop_toBottomOf="@+id/app_drawer_fragment_list" />
         <Constraint
             android:id="@+id/app_drawer_fragment_list"
             android:layout_width="0dp"
@@ -234,7 +235,7 @@
             android:layout_height="0dp"
             android:layout_marginStart="@dimen/margin_sides_small"
             android:layout_marginEnd="@dimen/margin_sides_small"
-            app:layout_constraintBottom_toTopOf="@id/app_drawer_edit_text"
+            app:layout_constraintBottom_toTopOf="@+id/app_drawer_edit_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

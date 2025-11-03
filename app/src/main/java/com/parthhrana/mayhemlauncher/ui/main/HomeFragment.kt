@@ -80,10 +80,10 @@ class HomeFragment : BaseFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         uninstallAppLauncher = registerForActivityResult(StartActivityForResult()) { refreshApps() }
-        refreshApps()
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?):
+View =
         if (corePreferencesRepo.get().searchBarPosition == SearchBarPosition.bottom) {
             HomeFragmentBottomBinding.inflate(layoutInflater, container, false).root
         } else {
@@ -92,7 +92,6 @@ class HomeFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val adapter1 = HomeAdapter(this, corePreferencesRepo)
         val adapter2 = HomeAdapter(this, corePreferencesRepo)
         val homeFragmentContent = HomeFragmentContentBinding.bind(view)
@@ -155,6 +154,7 @@ class HomeFragment : BaseFragment() {
         super.onResume()
         updateClock()
 
+        refreshApps()
         if (!::appDrawerAdapter.isInitialized) {
             appDrawerAdapter.setAppFilter()
         }
@@ -311,7 +311,8 @@ class HomeFragment : BaseFragment() {
                 // do nothing
             }
 
-            override fun onTransitionChange(motionLayout: MotionLayout?, startId: Int, endId: Int, progress: Float) {
+            override fun onTransitionChange(motionLayout: MotionLayout?, startId: Int, endId: Int, progress:
+Float) {
                 // do nothing
             }
         })
