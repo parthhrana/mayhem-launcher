@@ -82,8 +82,7 @@ class HomeFragment : BaseFragment() {
         uninstallAppLauncher = registerForActivityResult(StartActivityForResult()) { refreshApps() }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?):
-View =
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
         if (corePreferencesRepo.get().searchBarPosition == SearchBarPosition.bottom) {
             HomeFragmentBottomBinding.inflate(layoutInflater, container, false).root
         } else {
@@ -311,8 +310,7 @@ View =
                 // do nothing
             }
 
-            override fun onTransitionChange(motionLayout: MotionLayout?, startId: Int, endId: Int, progress:
-Float) {
+            override fun onTransitionChange(motionLayout: MotionLayout?, startId: Int, endId: Int, progress: Float) {
                 // do nothing
             }
         })

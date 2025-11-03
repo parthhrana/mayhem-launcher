@@ -1,5 +1,4 @@
 import com.google.protobuf.gradle.id
-
 import java.io.ByteArrayOutputStream
 
 plugins {
