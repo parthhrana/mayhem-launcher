@@ -92,7 +92,13 @@ fun getVersionName(): String {
         commandLine("git", "describe", "--tags", "--always", "--dirty", "--match", "v*.*.*")
         standardOutput = stdout
     }
-    return stdout.toString().trim().removePrefix("v")
+    val gitDescription = stdout.toString().trim()
+    if (gitDescription.startsWith("v") && gitDescription.contains(".")) {
+        return gitDescription.removePrefix("v")
+    } else {
+        // Fallback to a default version if no proper tag is found
+        return "0.0.1"
+    }
 }
 
 fun getVersionCode(): Int {
