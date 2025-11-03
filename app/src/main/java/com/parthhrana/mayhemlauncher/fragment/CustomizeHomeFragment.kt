@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.ComponentActivity
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.navigation.fragment.findNavController
 import com.parthhrana.mayhemlauncher.R
 import com.parthhrana.mayhemlauncher.bindings.setupAddHomeAppButton
 import com.parthhrana.mayhemlauncher.bindings.setupCustomizeQuickButtonsBackButton
@@ -16,11 +16,12 @@ import com.parthhrana.mayhemlauncher.databinding.CustomizeHomeBinding
 import com.parthhrana.mayhemlauncher.datasource.DataRepository
 import com.parthhrana.mayhemlauncher.datastore.proto.QuickButtonPreferences
 import com.parthhrana.mayhemlauncher.datastore.proto.UnlauncherApps
+import com.parthhrana.mayhemlauncher.utils.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class CustomizeHomeFragment : Fragment() {
+class CustomizeHomeFragment : BaseFragment() {
     @Inject
     lateinit var iActivity: ComponentActivity
     @Inject
@@ -29,6 +30,8 @@ class CustomizeHomeFragment : Fragment() {
     lateinit var quickButtonPreferencesRepo: DataRepository<QuickButtonPreferences>
     @Inject
     lateinit var appsRepo: DataRepository<UnlauncherApps>
+
+    override fun getFragmentView(): ViewGroup = CustomizeHomeBinding.bind(requireView()).customizeHomeFragment
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.customize_home, container, false)
@@ -41,5 +44,10 @@ class CustomizeHomeFragment : Fragment() {
             .also(setupQuickButtonIcons(quickButtonPreferencesRepo, iFragmentManager))
             .also(setupAddHomeAppButton(appsRepo))
             .also(setupHomeAppsList(appsRepo, iFragmentManager))
+    }
+
+    override fun onBack(): Boolean {
+        findNavController().popBackStack()
+        return true
     }
 }

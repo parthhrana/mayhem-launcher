@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.ComponentActivity
-import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.parthhrana.mayhemlauncher.R
 import com.parthhrana.mayhemlauncher.bindings.setupCustomizeAppDrawerBackButton
 import com.parthhrana.mayhemlauncher.bindings.setupSearchFieldOptionsButton
@@ -15,17 +15,20 @@ import com.parthhrana.mayhemlauncher.bindings.setupVisibleAppsButton
 import com.parthhrana.mayhemlauncher.databinding.CustomizeAppDrawerBinding
 import com.parthhrana.mayhemlauncher.datasource.DataRepository
 import com.parthhrana.mayhemlauncher.datastore.proto.CorePreferences
+import com.parthhrana.mayhemlauncher.utils.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class CustomizeAppDrawerFragment : Fragment() {
+class CustomizeAppDrawerFragment : BaseFragment() {
     @Inject
     lateinit var iActivity: ComponentActivity
     @Inject
     lateinit var iResources: Resources
     @Inject @WithFragmentLifecycle
     lateinit var corePreferencesRepo: DataRepository<CorePreferences>
+
+    override fun getFragmentView(): ViewGroup = CustomizeAppDrawerBinding.bind(requireView()).customizeAppDrawerFragment
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.customize_app_drawer, container, false)
@@ -38,5 +41,10 @@ class CustomizeAppDrawerFragment : Fragment() {
             .also(setupCustomizeAppDrawerBackButton(iActivity))
             .also(setupSearchFieldOptionsButton(corePreferencesRepo, iResources))
             .also(setupShowHeadingSwitch(corePreferencesRepo))
+    }
+
+    override fun onBack(): Boolean {
+        findNavController().popBackStack()
+        return true
     }
 }

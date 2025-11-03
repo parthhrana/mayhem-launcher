@@ -5,22 +5,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.ComponentActivity
-import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.parthhrana.mayhemlauncher.R
 import com.parthhrana.mayhemlauncher.bindings.setupVisibleAppsBackButton
 import com.parthhrana.mayhemlauncher.bindings.setupVisibleAppsList
 import com.parthhrana.mayhemlauncher.databinding.CustomizeAppDrawerVisibleAppsBinding
 import com.parthhrana.mayhemlauncher.datasource.DataRepository
 import com.parthhrana.mayhemlauncher.datastore.proto.UnlauncherApps
+import com.parthhrana.mayhemlauncher.utils.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class CustomizeVisibleAppsFragment : Fragment() {
+class CustomizeVisibleAppsFragment : BaseFragment() {
     @Inject
     lateinit var iActivity: ComponentActivity
     @Inject
     lateinit var unlauncherAppsRepo: DataRepository<UnlauncherApps>
+
+    override fun getFragmentView(): ViewGroup =
+        CustomizeAppDrawerVisibleAppsBinding.bind(requireView()).customizeAppDrawerVisibleApps
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
         inflater.inflate(R.layout.customize_app_drawer_visible_apps, container, false)
@@ -31,5 +35,10 @@ class CustomizeVisibleAppsFragment : Fragment() {
             .bind(view)
             .also(setupVisibleAppsBackButton(iActivity))
             .also(setupVisibleAppsList(unlauncherAppsRepo))
+    }
+
+    override fun onBack(): Boolean {
+        findNavController().popBackStack()
+        return true
     }
 }

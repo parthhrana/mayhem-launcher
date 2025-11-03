@@ -63,7 +63,7 @@ open class HomeWatcher(internal val context: Context) {
         @TargetApi(Build.VERSION_CODES.S_V2)
         override fun startWatch() {
             receiver?.let {
-                context.registerReceiver(it, filter)
+                context.registerReceiver(it, filter, Context.RECEIVER_NOT_EXPORTED)
             }
         }
     }
