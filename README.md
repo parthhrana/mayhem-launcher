@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/assets/mayhem-launcher-logo.png" alt="Mayhem Launcher Logo">
+  <img src="docs/assets/mayhem-launcher-logo.png" alt="Mayhem Launcher Logo" width="200">
 </p>
 
 <h1 align="center">
