@@ -46,6 +46,10 @@ class OptionsFragment : BaseFragment() {
             val intent = Intent(Settings.ACTION_SETTINGS)
             launchActivity(it, intent)
         }
+        optionsFragment.optionsFragmentChangeHomeLauncher.setOnClickListener {
+            val intent = Intent(Settings.ACTION_HOME_SETTINGS)
+            startActivity(intent)
+        }
         optionsFragment.optionsFragmentBack.setOnClickListener {
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }

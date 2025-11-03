@@ -87,6 +87,7 @@
     <string name="options_fragment_customise_apps">Home Apps</string>
     <string name="options_fragment_customize_app_drawer">Drawer</string>
     <string name="options_fragment_device_settings">Settings</string>
+    <string name="options_fragment_change_home_launcher">Change Home Launcher</string>
     <string name="options_fragment_toggle_status_bar">Toggle Status Bar</string>
     <string name="quick_buttons">Quick Buttons</string>
     <string name="quick_buttons_description_center">Settings Quick Button</string>
