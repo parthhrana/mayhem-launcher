@@ -1,5 +1,7 @@
 import com.google.protobuf.gradle.id
 
+import java.io.ByteArrayOutputStream
+
 plugins {
     id("com.android.application")
     id("dagger.hilt.android.plugin")
@@ -17,8 +19,8 @@ android {
         minSdk = 21
         //noinspection OldTargetApi
         targetSdk = 35
-        versionName = "2.2.0-beta.1"
-        versionCode = 22
+        versionName = getVersionName()
+        versionCode = getVersionCode()
         vectorDrawables { useSupportLibrary = true }
 //        signingConfigs {
 //            if (project.extra.has("RELEASE_STORE_FILE")) {
@@ -82,6 +84,24 @@ android {
         }
         assembleProvider.get().dependsOn.add("ktlintCheck")
     }
+}
+
+fun getVersionName(): String {
+    val stdout = ByteArrayOutputStream()
+    exec {
+        commandLine("git", "describe", "--tags", "--always", "--dirty", "--match", "v*.*.*")
+        standardOutput = stdout
+    }
+    return stdout.toString().trim().removePrefix("v")
+}
+
+fun getVersionCode(): Int {
+    val versionName = getVersionName()
+    val (major, minor, patch) = versionName
+        .split("-")[0] // Remove any -beta or -SNAPSHOT suffixes
+        .split(".")
+        .map { it.toInt() }
+    return major * 1000000 + minor * 1000 + patch
 }
 
 dependencies {

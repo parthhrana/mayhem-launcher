@@ -52,7 +52,7 @@
     <string name="choose_time_format_dialog_title">Zeitformat</string>
     <string name="content_description_back">Zurück</string>
     <string name="customise_apps_fragment_add">Hinzufügen</string>
-    <string name="customize_app_drawer_fragment_auto_theme_wallpaper_subtext_no_default_launcher">Unlauncher muss die standard Start-App sein</string>
+    <string name="customize_app_drawer_fragment_auto_theme_wallpaper_subtext_no_default_launcher">Mayhem Launcher muss die standard Start-App sein</string>
     <string name="customize_app_drawer_fragment_auto_theme_wallpaper_text">Themenhintergrund verwenden</string>
     <string name="customize_app_drawer_fragment_open_keyboard">Tastatur anzeigen</string>
     <string name="customize_app_drawer_fragment_open_keyboard_subtitle">Tastatur anzeigen, wenn der App-Drawer angezeigt wird</string>

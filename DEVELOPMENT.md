@@ -31,7 +31,7 @@ Building an Unlauncher release is straightforward.
 > A beta release should be published ahead of an official release any time there are major changes to the app or the build process.
 
 Unfortunately, F-Droid does not have an automatic process for triggering "beta" releases like it does for normal automatic updates [yet](https://gitlab.com/fdroid/fdroidserver/-/issues/161).
-However, an F-Droid user will only be prompted to upgrade an app (or have the app be auto-upgraded) if their locally installed app has a version/code that is less than the `CurrenVersion`/`CurrentVersionCode` defined in the [fdroiddata yml config file](https://gitlab.com/fdroid/fdroiddata/-/blob/master/metadata/com.jkuester.unlauncher.yml).
+However, an F-Droid user will only be prompted to upgrade an app (or have the app be auto-upgraded) if their locally installed app has a version/code that is less than the `CurrenVersion`/`CurrentVersionCode` defined in the [fdroiddata yml config file](https://gitlab.com/fdroid/fdroiddata/-/blob/master/metadata/com.parthhrana.mayhemlauncher.yml).
 
 So, creating a beta release for Unlauncher requires the following steps:
 
@@ -44,6 +44,6 @@ So, creating a beta release for Unlauncher requires the following steps:
 
 ## Checking F-Droid build status
 
-The status for the latest Unlauncher F-Droid build can be found [here](https://gitlab.com/fdroid/fdroiddata/-/blob/master/metadata/com.jkuester.unlauncher.yml).
+The status for the latest Unlauncher F-Droid build can be found [here](https://gitlab.com/fdroid/fdroiddata/-/blob/master/metadata/com.parthhrana.mayhemlauncher.yml).
 
 A list of all recent F-Droid builds can be found [here](https://f-droid.org/wiki/index.php?title=Special:RecentChanges&days=30&from=&hidebots=0&hideanons=1&hideliu=1&limit=500).
